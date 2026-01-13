@@ -45,23 +45,32 @@ hoverElements.forEach(element => {
     });
 });
 
-// FAQ Accordion
+// FAQ Accordion - Fixed version
 const faqItems = document.querySelectorAll('.faq-item');
 
+// İlk FAQ'ı açık yap
+if (faqItems.length > 0) {
+    faqItems[0].classList.add('active');
+}
+
 faqItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        
-        // Close all items
-        faqItems.forEach(faqItem => {
-            faqItem.classList.remove('active');
+    const question = item.querySelector('.faq-question');
+    
+    if (question) {
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            faqItems.forEach(faqItem => {
+                faqItem.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
         });
-        
-        // Open clicked item if it wasn't active
-        if (!isActive) {
-            item.classList.add('active');
-        }
-    });
+    }
 });
 
 // Scroll Reveal Animation
