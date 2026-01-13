@@ -1,4 +1,4 @@
-﻿const cursorFollower = document.querySelector('.cursor-follower');
+const cursorFollower = document.querySelector('.cursor-follower');
 const cursorDot = document.querySelector('.cursor-dot');
 let mouseX = 0;
 let mouseY = 0;
